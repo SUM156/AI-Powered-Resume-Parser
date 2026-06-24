@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: ai-resume-parser
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+    volumes:
+      - ./data:/app/data
+      - ./exports:/app/exports
+    restart: unless-stopped
